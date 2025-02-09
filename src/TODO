@@ -1,0 +1,10 @@
+# TODO list
+
+- [ ] Find a way to combine spectral raytracer with codes in RTOWbookSeries
+
+    1. Base classes may be the same e.g. CRay, but templated/dispatched for use on CPU/GPU or Optix
+
+    2. CSpectralRayTracer is currently too intertwined with Optix. Perhaps better to define a new class with common base.
+
+- [x] Implement ray-triangle intersection MT algorithm for CPU and CUDA (template vector type)
+
