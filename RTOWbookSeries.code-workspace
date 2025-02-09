@@ -8,6 +8,12 @@
 		},
 		{
 			"path": "../skysimulator"
+		},
+		{
+			"path": "../raytracing_PeterCdev/singleRayTracer_ESA"
+		},
+		{
+			"path": "../spectral_raytracer"
 		}
 	],
 	"settings": {}
