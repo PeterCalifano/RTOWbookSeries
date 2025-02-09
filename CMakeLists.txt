@@ -6,10 +6,10 @@ cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
 #set(CMAKE_CUDA_COMPILER nvcc)
 
 # Manually specify build type
-set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE relwithdebinfo)
 
 # PROJECT DEFINITION
-set(project_name "template_project")
+set(project_name "RTOW_raytracer_core")
 
 option(ENABLE_OPTIX "Enable OptiX" OFF)
 set(languages CXX CUDA) # ACHTUNG: PTX code requires C language!
@@ -33,7 +33,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # OPTIONS
-option(ENABLE_OMP "Enable OpenMP" OFF)
+option(ENABLE_OMP "Enable OpenMP" ON)
 if(NOT DEFINED NUM_OMP_THREADS)
     set(NUM_OMP_THREADS 4 CACHE INTERNAL "Number of OpenMP threads to use")
 endif()
@@ -48,11 +48,11 @@ option(ENABLE_SIMD "Enable SIMD instructions" ON)
 # COMPILER FLAGS
 string(TOUPPER "${CMAKE_BUILD_TYPE}" BUILD_TYPE_UPPER)
 if (NOT BUILD_TYPE_UPPER STREQUAL "DEBUG")      
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O3")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O3")
 else()
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -O0 -g")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -O0 -g")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Og -g -fsanitize=address,undefined") # -Wpedantic
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Og -g -fsanitize=address,undefined")
 endif()
 
 # Guard against in-source builds
