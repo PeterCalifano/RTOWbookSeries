@@ -1,27 +1,27 @@
 /**
- * @file RenderLambertianAndMetalSpheresExample.cpp
+ * @file RendedHollowGlassSphereExample.cpp
  * @author PeterC (petercalifano.gs@gmail.com)
  * @brief 
  * @version 0.1
- * @date 2024-08-15
+ * @date 2024-08-18
  */
 
 #include <iostream>
 #include <fstream>
 #include <Eigen/Dense>
-#include <utils.h>
-#include <CRay.h>
-#include <CPerspectiveCamera.h>
-#include <CSphere.h>
+#include <utils/utils.h>
+#include <base/CRay.h>
+#include <base/CPerspectiveCamera.h>
+#include <geometry/CSphere.h>
 #include <global_include.h>
 #include <memory>
-#include <CMaterial.h>
+#include <base/CMaterial.h>
 
 #define IMG_PATH "/home/peterc/devDir/raytracing_PeterCdev/RayTracingBooksSeries/output/"
-#define IMG_NAME "imageLambertianAndMetalSpheresWithWorld"
+#define IMG_NAME "imageHollowGlassSphere_testRefractPlusTotalReflect"
 #define NUM_THREADS 4
 
-using namespace raytracer;
+using namespace RTOW_raytracer;
 using std::make_shared, std::shared_ptr;
 
 int main()
@@ -35,12 +35,11 @@ int main()
     // Set image size
     int image_height = static_cast<int>(image_width / aspect_ratio);
 
-    // Define CViewport
     Point3<double> eyeCentre(0, 0, 0);
     // CViewport<double> viewport(aspect_ratio, image_width, eyeCentre);
 
     // Define CEye and the associated viewport
-    CPerspectiveCamera<double> camera(eyeCentre, image_width, aspect_ratio, 90.0, Point3<double>(0, 0, -1));
+    CPerspectiveCamera<double> camera(eyeCentre, image_width, aspect_ratio);
 
     // Set anti-aliasing
     int pixels_per_sample = 50;
@@ -52,20 +51,25 @@ int main()
     CHittableHierarchy<double> world;
 
     // Define materials
-    shared_ptr<CLambertian<double>> lambertSpherePtr = std::make_shared<CLambertian<double>>(Vector3<double>(0.1, 0.2, 0.5));  // Centre sphere
-    shared_ptr<CLambertian<double>> lambertGroundPtr = std::make_shared<CLambertian<double>>(Vector3<double>(0.8, 0.8, 0.0));  // Ground sphere
+    shared_ptr<CLambertian<double>> lambertSpherePtr = std::make_shared<CLambertian<double>>(Vector3<double>(0.1, 0.2, 0.5)); // Centre sphere
+    shared_ptr<CLambertian<double>> lambertGroundPtr = std::make_shared<CLambertian<double>>(Vector3<double>(0.8, 0.8, 0.0)); // Ground sphere
 
-    shared_ptr<CPurelyReflective<double>> metalSphereLeftPtr = std::make_shared<CPurelyReflective<double>> (Vector3<double>(0.8, 0.8, 0.8)); // Left sphere
-    shared_ptr<CPurelyReflective<double>> metalSphereRightPtr = std::make_shared<CPurelyReflective<double>>(Vector3<double>(0.8, 0.6, 0.2)); // Right sphere
+    //auto glass_spherePtr = make_shared<CDielectric<double>>(1.5);
+    auto glass_spherePtr = make_shared<CDielectric<double>>(1.0/1.33);
+
+    //auto air_bubblePtr = make_shared<CDielectric<double>>(1.0 / 1.5); // Air bubble within the glass sphere
+
+    auto metalSphereRightPtr = make_shared<CPurelyReflective<double>>(Vector3<double>(0.8, 0.6, 0.0), 1.0); // Right sphere
 
     // Add Object to scene (world)
-    world.add(std::make_shared<CSphere<double>>(Point3<double>(0, 0, -1), 0.5, lambertSpherePtr));      // Sphere at origin
+    world.add(std::make_shared<CSphere<double>>(Point3<double>(0, 0, -1.2), 0.5, lambertSpherePtr));      // Sphere at origin
     world.add(std::make_shared<CSphere<double>>(Point3<double>(0, -100.5, -1), 100, lambertGroundPtr)); // Ground sphere
+    world.add(std::make_shared<CSphere<double>>(Point3<double>(1, 0, -1), 0.5, metalSphereRightPtr));   // Right sphere
 
-    world.add(std::make_shared<CSphere<double>>(Point3<double>(-1, 0, -1), 0.5, metalSphereLeftPtr));  // Left sphere
-    world.add(std::make_shared<CSphere<double>>(Point3<double>(1, 0, -1), 0.5, metalSphereRightPtr));  // Right sphere
+    world.add(std::make_shared<CSphere<double>>(Point3<double>(-1, 0, -1), 0.5, glass_spherePtr)); // Glass sphere
+    //world.add(std::make_shared<CSphere<double>>(Point3<double>(-1, 0, -1), -0.4, air_bubblePtr)); // Air bubble within the glass sphere
 
-    // Define image writer to write image
+    // Define image writer to write images
     std::string filename = std::string(IMG_PATH) + std::string(IMG_NAME) + nameSuffix + ".ppm";
 
     std::shared_ptr<CViewport<double>> viewport_ptr = camera.GetViewportPtr();

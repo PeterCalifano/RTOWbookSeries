@@ -22,7 +22,3 @@ foreach(exampleFile ${srcExampleFiles})
     target_include_directories(${exampleName} PRIVATE ${${lib_name}_INCLUDE_DIRS})
 
 endforeach()
-
-# Add subdirectories examples 
-add_subdirectory(examples_InOneWeekend)
-add_subdirectory(examples_TheNextWeek)

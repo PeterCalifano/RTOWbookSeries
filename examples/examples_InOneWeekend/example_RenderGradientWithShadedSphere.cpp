@@ -8,16 +8,16 @@
 #include <iostream>
 #include <fstream>
 #include <Eigen/Dense>
-#include <utils.h>
-#include <CRay.h>
-#include <CEye.h>
+#include <utils/utils.h>
+#include <base/CRay.h>
+#include <base/CEye.h>
 #include <memory>
-#include <CPerspectiveCamera.h>
+#include <base/CPerspectiveCamera.h>
 
 #define IMG_PATH "../output/"
 #define NUM_THREADS 4
 
-using namespace raytracer;
+using namespace RTOW_raytracer;
 
 // Function to determine if ray hits sphere
 double HitSphere(const Point3<double> &centre, double radius, const CRay<Vector3<double>, Point3<double>, double> &ray)

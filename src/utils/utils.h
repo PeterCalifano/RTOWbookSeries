@@ -170,9 +170,9 @@ namespace RTOW_raytracer
 
     protected:
         // Data members
+        double aspectRatio_;
         int imgWidth_;
         int imgHeight_;
-        double aspectRatio_;
         T focusDistance_ = 1.0;    // Arbitrary convention, no need to change for now
         T viewportHeight_ = 2.0; // Arbitrary convention
         T viewportWidth_;        // Derived from aspect ratio and height

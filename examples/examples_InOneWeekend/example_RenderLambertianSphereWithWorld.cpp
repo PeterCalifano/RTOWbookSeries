@@ -9,19 +9,19 @@
 #include <iostream>
 #include <fstream>
 #include <Eigen/Dense>
-#include <utils.h>
-#include <CRay.h>
-#include <CPerspectiveCamera.h>
-#include <CSphere.h>
+#include <utils/utils.h>
+#include <base/CRay.h>
+#include <base/CPerspectiveCamera.h>
+#include <geometry/CSphere.h>
 #include <global_include.h>
 #include <memory>
-#include <CMaterial.h>
+#include <base/CMaterial.h>
 
 #define IMG_PATH "/home/peterc/devDir/codeRepoPeterC/raytracing/RayTracingBooksSeries/output/"
 #define IMG_NAME "imageLambertianSphereWithWorld"
 #define NUM_THREADS 4
 
-using namespace raytracer;
+using namespace RTOW_raytracer;
 using std::make_shared, std::shared_ptr;
 
 int main()

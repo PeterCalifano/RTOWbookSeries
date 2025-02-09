@@ -11,10 +11,10 @@
 #include <iostream>
 #include <memory>
 #include <global_include.h>
-#include <CHittable.h>
-#include <utils.h>
-#include <CAntiAliasing.h>
-#include <CRay.h>
+#include <geometry/CHittable.h>
+#include <utils/utils.h>
+#include <core/CAntiAliasing.h>
+#include <base/CRay.h>
 
 namespace RTOW_raytracer
 {

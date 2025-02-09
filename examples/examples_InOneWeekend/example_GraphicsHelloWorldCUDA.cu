@@ -9,7 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <cuda_runtime.h>
-#define IMG_PATH "../output/"
+#define IMG_PATH "."
 
 // Check CUDA error macro
 #define checkCudaErrors(val) check_cuda((val), #val, __FILE__, __LINE__)
