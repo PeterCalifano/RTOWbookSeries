@@ -8,6 +8,7 @@
 // Define macros
 #define __both__ __host__ __device__
 #define __host__ __host__
+#define __device__ __device__
 
 #else
 
@@ -15,6 +16,7 @@
 
 #define __both__
 #define __host__
+#define __device__
 
 #endif
 

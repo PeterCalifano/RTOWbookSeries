@@ -41,7 +41,7 @@ namespace RTOW_raytracer
         //CEye() : centre_(Point3<T>(0.0, 0.0, 0.0)), viewport_(CViewport<T>()) {}; // Default constructor
 
         // Construct CEye from input viewport
-        tagAll CEye(const Point3<T> &centre, const CViewport<T> &viewport) : centre_(centre), viewport_(viewport)
+        __both__ CEye(const Point3<T> &centre, const CViewport<T> &viewport) : centre_(centre), viewport_(viewport)
         {
             // Get focal length and scale coefficient from viewport
             focusDistance_ = viewport.GetFocusDistance();
@@ -69,7 +69,7 @@ namespace RTOW_raytracer
         // Construct CEye and corresponding viewport directly
 
         // From centre, image width and height, and DCM
-        tagAll CEye(const Point3<T> &centre, const int imgWidth, const int imgHeight,
+        __both__ CEye(const Point3<T> &centre, const int imgWidth, const int imgHeight,
                    const T fovInDeg, const Eigen::Matrix3<T> DCM_WfromEye = Eigen::Matrix3<T>::Identity(), const T focusDist = 1.0)
             : focusDistance_(focusDist), fovAngleInRad_(deg2rad(fovInDeg))
         {
@@ -85,7 +85,7 @@ namespace RTOW_raytracer
         };
 
         // From centre, image width and height, and LookAt point
-        tagAll CEye(const Point3<T> &centre, const int imgWidth, const int imgHeight,
+        __both__ CEye(const Point3<T> &centre, const int imgWidth, const int imgHeight,
                    const T fovInDeg, const Point3<T> LookAtPoint, const T focusDist = 1.0)
             : focusDistance_(focusDist), fovAngleInRad_(deg2rad(fovInDeg))
         {
@@ -109,7 +109,7 @@ namespace RTOW_raytracer
         };
 
         // From centre, image width, aspect ratio, and DCM
-        tagAll CEye(const Point3<T> &centre, const int imgWidth, const double aspect_ratio,
+        __both__ CEye(const Point3<T> &centre, const int imgWidth, const double aspect_ratio,
                    const T fovInDeg, const Eigen::Matrix3<T> DCM_WfromEye = Eigen::Matrix3<T>::Identity(), const T focusDist = 1.0)
             : focusDistance_(focusDist), fovAngleInRad_(deg2rad(fovInDeg))
         {
@@ -124,7 +124,7 @@ namespace RTOW_raytracer
         };
 
         // From centre, image width, aspect ratio, and LookAt point
-        tagAll CEye(const Point3<T> &centre, const int imgWidth, const double aspect_ratio,
+        __both__ CEye(const Point3<T> &centre, const int imgWidth, const double aspect_ratio,
                    const T fovInDeg, const Point3<T> LookAtPoint, const T focusDist = 1.0)
             : focusDistance_(focusDist), fovAngleInRad_(deg2rad(fovInDeg))
         {
@@ -147,35 +147,35 @@ namespace RTOW_raytracer
         virtual void render(CImgWriter<T> &imgWriter, const CHittable<T> &world) = 0; // Pure virtual method to render the scene from the eye's perspective depending on the specific sensor
 
         // Getters
-        tagAll Point3<T> GetCentre() const { return centre_; }
-        tagAll Eigen::Matrix3<T> GetDCM_WfromEye() const { return DCM_WfromEye_; }
+        __both__ Point3<T> GetCentre() const { return centre_; }
+        __both__ Eigen::Matrix3<T> GetDCM_WfromEye() const { return DCM_WfromEye_; }
 
-        tagAll std::shared_ptr<CViewport<T>> GetViewportPtr() const { return (std::make_shared<CViewport<T>>(viewport_)); } // Return a shared pointer to viewport TBC if ok this way
-        tagAll int GetSamplesNumber() const { return samplesPerPixel_; }
+        __both__ std::shared_ptr<CViewport<T>> GetViewportPtr() const { return (std::make_shared<CViewport<T>>(viewport_)); } // Return a shared pointer to viewport TBC if ok this way
+        __both__ int GetSamplesNumber() const { return samplesPerPixel_; }
 
-        tagAll T GetFocusDistance() const { return focusDistance_; }
-        tagAll T GetScaleCoeff() const { return scaleCoeff_; }
-        tagAll T GetFovAngleInDeg() const { return rad2deg(fovAngleInRad_); }
+        __both__ T GetFocusDistance() const { return focusDistance_; }
+        __both__ T GetScaleCoeff() const { return scaleCoeff_; }
+        __both__ T GetFovAngleInDeg() const { return rad2deg(fovAngleInRad_); }
 
         // Setters
         // void SetSamplesNumber(const int samples) { samplesPerPixel_ = samples; }
-        tagAll void SetAntiAliasing(const CAntiAliasing<T> &antiAliasing)
+        __both__ void SetAntiAliasing(const CAntiAliasing<T> &antiAliasing)
         {
             antiAliasing_ = antiAliasing;
             // Update samplesPerPixel_
             samplesPerPixel_ = antiAliasing_.GetSamplesPerPix();
         };
 
-        tagAll void SetAntiAliasing(const int samplesPerPixel)
+        __both__ void SetAntiAliasing(const int samplesPerPixel)
         {
             samplesPerPixel_ = samplesPerPixel;
             antiAliasing_ = CAntiAliasing<T>(samplesPerPixel);
         }
 
-        tagAll void SettMinAllowedValue_(const double tMin) { tMinAllowedValue_ = tMin; }
+        __both__ void SettMinAllowedValue_(const double tMin) { tMinAllowedValue_ = tMin; }
 
         // Set pose directly from centre and DCM
-        tagAll void SetPose(const Vector3<T> &centre, const Eigen::Matrix3<T> &DCM_WfromEye)
+        __both__ void SetPose(const Vector3<T> &centre, const Eigen::Matrix3<T> &DCM_WfromEye)
         {
             centre_ = centre;
             DCM_WfromEye_ = DCM_WfromEye_;
@@ -185,10 +185,10 @@ namespace RTOW_raytracer
         };
 
         // Set pose from centre and quaternion
-        tagAll void SetPose(const Vector3<T> &centre, const Eigen::Vector4<T> &QuatLeftScalarFirst_WfromEye);
+        __both__ void SetPose(const Vector3<T> &centre, const Eigen::Vector4<T> &QuatLeftScalarFirst_WfromEye);
 
         // Set pose from centre and "LookAt" point (Assumption made to construct (u,v))
-        tagAll void SetPose(const Vector3<T> &centre, const Point3<T> &lookAtPoint);
+        __both__ void SetPose(const Vector3<T> &centre, const Point3<T> &lookAtPoint);
 
         // Set pose from centre and boresight axis (+Z), (Assumption made to construct (u,v)) --> Temporarily removed
         // void SetPose(const Vector3<T> &centre, const Vector3<T> &axis_boresight); // DEVNOTE: The compiler will probably complain about the ambiguity of the function signature due to Point3 alias
@@ -210,11 +210,11 @@ namespace RTOW_raytracer
         T fovAngleInRad_ = deg2rad(20.0); // TOTAL Field of view angle in RAD (default is 45 degrees in radians)
 
         // PROTECTED METHODS
-        tagAll virtual Vector3<T> ComputeRayColour(const CRay<Vector3<T>, Point3<T>, T> &ray, const CHittable<T> &world, const int depthLevel) const = 0; // Function returning vec3i colour of ray (RGB)
-        tagAll virtual CRay<Vector3<T>, Point3<T>, T> GenerateRay(const int i, const int j) const;                                                        // Function to generate ray from eye to pixel (i, j) on the viewport
+        __both__ virtual Vector3<T> ComputeRayColour(const CRay<Vector3<T>, Point3<T>, T> &ray, const CHittable<T> &world, const int depthLevel) const = 0; // Function returning vec3i colour of ray (RGB)
+        __both__ virtual CRay<Vector3<T>, Point3<T>, T> GenerateRay(const int i, const int j) const;                                                        // Function to generate ray from eye to pixel (i, j) on the viewport
 
         // Function to initialize the viewport from the eye's properties
-        tagAll void InitializeViewport(const double aspectRatio, const int imgWidth)
+        __both__ void InitializeViewport(const double aspectRatio, const int imgWidth)
         {
             // Get previous (unmodified) settings from viewport
             CViewport<T> viewport(aspectRatio, imgWidth, *this);
@@ -222,7 +222,7 @@ namespace RTOW_raytracer
         };
 
         // Function to reinitialize the viewport from the eye's properties
-        tagAll void ReInitializeViewport()
+        __both__ void ReInitializeViewport()
         {
             // Get previous (unmodified) settings from viewport
             CViewport<T> viewport(viewport_.GetAspectRatio(), viewport_.GetImgWidth(), *this);

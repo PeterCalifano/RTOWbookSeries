@@ -31,16 +31,16 @@ namespace RTOW_raytracer
     {
     public:
         // CONSTRUCTORS
-        tagAll CSphere() {};
+        __both__ CSphere() {};
 
-        tagAll CSphere(const Point3<T> &centre, const T radius)
+        __both__ CSphere(const Point3<T> &centre, const T radius)
             : centre_(centre), radius_(fmax(0, radius)), materialPtr_(std::make_shared<CFlat<T>>()) {}; // No material, set as Flat by default
 
-        tagAll CSphere(const Point3<T> &centre, const T radius, const std::shared_ptr<CMaterial<T>> materialPtr)
+        __both__ CSphere(const Point3<T> &centre, const T radius, const std::shared_ptr<CMaterial<T>> materialPtr)
             : centre_(centre), radius_(fmax(0, radius)), materialPtr_(materialPtr) {};
 
         // Moving spheres
-        tagAll CSphere(const Point3<T> &centre0, const Point3<T> &centre1, const T radius, const std::shared_ptr<CMaterial<T>> materialPtr)
+        __both__ CSphere(const Point3<T> &centre0, const Point3<T> &centre1, const T radius, const std::shared_ptr<CMaterial<T>> materialPtr)
             : centre_(centre0), centreFinal_(centre1), radius_(fmax(0, radius)), materialPtr_(materialPtr) {}; // To do: define "interpolant" for the centre of the moving spheres
 
         // DESTRUCTOR
@@ -50,11 +50,11 @@ namespace RTOW_raytracer
         // PUBLIC METHODS
         // Check for intersection
 
-        tagAll bool FindHit(const CRay<Vector3<T>, Point3<T>, T> &ray, const CInterval<T> &tInterval, CHitAttributes<T> &hitRecord) const override; // MODIFY to override method
-        tagAll Vector3<T> GetNormal(const Point3<T> &point) const;
+        __both__ bool FindHit(const CRay<Vector3<T>, Point3<T>, T> &ray, const CInterval<T> &tInterval, CHitAttributes<T> &hitRecord) const override; // MODIFY to override method
+        __both__ Vector3<T> GetNormal(const Point3<T> &point) const;
 
         // Getters
-        tagAll Point3<T> centre(double time = 0) const
+        __both__ Point3<T> centre(double time = 0) const
         {
             if (centreFinal_ != centre_ && time > 0)
             {   // Perform linear interpolation between centre_ and centreFinal_
@@ -67,10 +67,10 @@ namespace RTOW_raytracer
             }
         }
 
-        tagAll T radius() const { return radius_; }
+        __both__ T radius() const { return radius_; }
 
         // Setter for material
-        tagAll void SetMaterial(const std::shared_ptr<CMaterial<T>> materialPtr) { materialPtr_ = materialPtr; }
+        __both__ void SetMaterial(const std::shared_ptr<CMaterial<T>> materialPtr) { materialPtr_ = materialPtr; }
 
     protected:
         Point3<T> centre_;
