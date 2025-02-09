@@ -4,19 +4,21 @@
 
 #if (CUDA_ENABLED)
 #include <cuda_runtime.h>
+#pragma message("Building with CUDA support")
 
 // Define macros
-#define __both__ __host__ __device__
-#define __host__ __host__
-#define __device__ __device__
+#define __both __host__ __device__
+#define __host __host__
+#define __device __device__
 
 #else
 
 #include <Eigen/Dense>
+#pragma message("Building CPU-only")
 
-#define __both__
-#define __host__
-#define __device__
+#define __both
+#define __host
+#define __device
 
 #endif
 

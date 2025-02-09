@@ -35,21 +35,21 @@ namespace RTOW_raytracer
 
     public:
         // CONSTRUCTORS
-        __both__ CRay() {};
-        __both__ CRay(const Point3<T> &origin, const Vector3<T> &direction) : origin_(origin), direction_(direction) {};
-        __both__ CRay(const Point3<T> &origin, const Vector3<T> &direction, const T time) : origin_(origin), direction_(direction), time_(time) {};
+        __both CRay() {};
+        __both CRay(const Point3<T> &origin, const Vector3<T> &direction) : origin_(origin), direction_(direction) {};
+        __both CRay(const Point3<T> &origin, const Vector3<T> &direction, const T time) : origin_(origin), direction_(direction), time_(time) {};
 
         // DESTRUCTOR
 
     public:
         // PUBLIC METHODS
-        __both__ POINT3 at(T sliderAlongLine) const { return origin_ + sliderAlongLine * direction_; }
+        __both POINT3 at(T sliderAlongLine) const { return origin_ + sliderAlongLine * direction_; }
 
         // Getters
-        __both__ POINT3 origin() const { return origin_; }
-        __both__ VECTOR3 direction() const { return direction_; }
-        __both__ VECTOR3 GetUnitDirection() const { return direction_.normalized(); }
-        __both__ T time() const { return time_; }
+        __both POINT3 origin() const { return origin_; }
+        __both VECTOR3 direction() const { return direction_; }
+        __both VECTOR3 GetUnitDirection() const { return direction_.normalized(); }
+        __both T time() const { return time_; }
 
     protected:
         T time_ = 0;
