@@ -1,0 +1,8 @@
+[submodule "lib/rapidyaml_PeterCdev"]
+	path = lib/rapidyaml_PeterCdev
+	url = git@github.com:PeterCalifano/rapidyaml_PeterCdev.git
+	branch = dev_main
+[submodule "lib/stb_PeterCdev"]
+	path = lib/stb_PeterCdev
+	url = git@github.com:PeterCalifano/stb_PeterCdev.git
+	branch = dev_main
