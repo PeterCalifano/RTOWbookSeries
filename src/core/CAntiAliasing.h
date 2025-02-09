@@ -14,7 +14,7 @@
 #include <global_include.h>
 #include <rng.h>
 
-namespace raytracer
+namespace RTOW_raytracer
 {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -50,4 +50,4 @@ namespace raytracer
         bool IsEnabled_ = false; // Flag to enable/disable anti-aliasing, to inform other classes
     };
 
-} // namespace raytracer
+} // namespace RTOW_raytracer

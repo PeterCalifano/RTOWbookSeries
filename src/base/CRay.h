@@ -14,7 +14,7 @@
 // DEVNOTE: ALL class/function template MUST be compatible with CUDA/OptiX types defined in <optixu/optixu_math_namespace.h> and <cuda_runtime.h> of the SDKs
 // Types are mostly for vectors and matrices optimized for GPU computing.
 
-namespace raytracer
+namespace RTOW_raytracer
 {
 
     // Forward declaration of SHitAttributes
@@ -60,4 +60,4 @@ namespace raytracer
     private:
     };
 
-} // namespace raytracer
+} // namespace RTOW_raytracer

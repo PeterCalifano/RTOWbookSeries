@@ -12,13 +12,13 @@
 #include <iostream>
 #include <memory>
 #include <global_include.h>
-#include <CRay.h>
-#include <CHittable.h>
-#include <CMaterial.h>
+#include <base/CRay.h>
+#include <geometry/CHittable.h>
+#include <base/CMaterial.h>
 
 #define DEFAULT_MAX_DEPTH 10
 
-namespace raytracer
+namespace RTOW_raytracer
 {
 
     template <typename T>
@@ -107,4 +107,4 @@ namespace raytracer
         };
     };
 
-} // namespace raytracer
+} // namespace RTOW_raytracer

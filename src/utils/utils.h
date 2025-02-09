@@ -20,7 +20,7 @@
 #include <cuda_runtime.h>
 #endif
 
-namespace raytracer
+namespace RTOW_raytracer
 {
 
     using Eigen::Vector3i, Eigen::Vector3f, Eigen::Vector3d;

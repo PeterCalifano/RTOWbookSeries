@@ -6,8 +6,8 @@
  * @date 2024-08-14
  */
 
-#include <CPerspectiveCamera.h>
-#include <utils.h>
+#include "CPerspectiveCamera.h"
+#include <utils/utils.h>
 
 #if (_OPENMP)
 #include <omp.h>
@@ -16,7 +16,7 @@
 #include <iomanip>
 #endif
 
-namespace raytracer
+namespace RTOW_raytracer
 {
 
         // Forward declaration (DEVNOTE: required?)
@@ -155,7 +155,7 @@ namespace raytracer
         template <typename T>
         Vector3<T> CPerspectiveCamera<T>::ComputeRayColour(const CRay<Vector3<T>, Point3<T>, T> &ray, const CHittable<T> &entity, const int depthLevel) const
         {
-                // If depth level is 0, the raytracer assumed to have hit the background --> no light is returned
+                // If depth level is 0, the RTOW_raytracer assumed to have hit the background --> no light is returned
                 if (depthLevel <= 0)
                 {
                         return Vector3<T>(0, 0, 0);
@@ -213,4 +213,4 @@ namespace raytracer
         // TEMPLATE EXPLICIT INSTANTIATIONS
         template class CPerspectiveCamera<double>;
 
-} // namespace raytracer
+} // namespace RTOW_raytracer

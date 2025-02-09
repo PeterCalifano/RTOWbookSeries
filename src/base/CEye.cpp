@@ -5,9 +5,9 @@
  * @version 0.1
  * @date 2024-08-14
  */
-#include <CEye.h>
+#include "CEye.h"
 
-namespace raytracer
+namespace RTOW_raytracer
 {
 
     template <typename T>
@@ -106,4 +106,4 @@ namespace raytracer
     // TEMPLATE INSTANTIATIONS
     template class CEye<double>;
 
-} // namespace raytracer
+} // namespace RTOW_raytracer

@@ -18,8 +18,20 @@ endif()
 set(${lib_name}_INCLUDE_DIRS ${${lib_name}_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Add subdirectories with src files
+message(STATUS "Adding module: base")
+add_subdirectory(base)
+
 message(STATUS "Adding module: core")
 add_subdirectory(core)
+
+message(STATUS "Adding module: geometry")
+add_subdirectory(geometry)
+
+#message(STATUS "Adding module: renderer")
+#add_subdirectory(renderer)
+
+message(STATUS "Adding module: utils")
+add_subdirectory(utils)
 
 # Exclude EXCLUDED_LIST from the list of src files
 set(EXCLUDED_LIST "")

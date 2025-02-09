@@ -8,7 +8,7 @@
 
 #include <CAntiAliasing.h>
 
-namespace raytracer
+namespace RTOW_raytracer
 {
 
     /**
@@ -27,4 +27,4 @@ namespace raytracer
 // TEMPLATE INSTANTIATIONS
 template class CAntiAliasing<double>;
 
-} // namespace raytracer
+} // namespace RTOW_raytracer

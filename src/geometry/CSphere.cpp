@@ -13,7 +13,7 @@
 #include <CHittable.h>
 #include <utils.h>
 
-namespace raytracer
+namespace RTOW_raytracer
 {
     // Forwards declaration of CHitAttributes
     template <typename T>
@@ -75,4 +75,4 @@ namespace raytracer
     //////// TEMPLATE INSTANTIATIONS ////////
     template class CSphere<double>;
 
-} // namespace raytracer
+} // namespace RTOW_raytracer

@@ -7,13 +7,13 @@
  */
 
 #include <Eigen/Dense>
-#include <CRay.h>
+#include "CRay.h"
 #include <global_include.h>
 
-namespace raytracer
+namespace RTOW_raytracer
 {
 
 // TEMPLATE INSTANTIATIONS
 template class CRay<Vector3<double>, Point3<double>, double>;
 
-} // namespace raytracer
+} // namespace RTOW_raytracer

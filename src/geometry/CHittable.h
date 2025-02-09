@@ -12,7 +12,7 @@
 #include <memory>
 #include <utils.h>
 
-namespace raytracer
+namespace RTOW_raytracer
 {
 
     // Forward declarations
@@ -150,4 +150,4 @@ namespace raytracer
         std::vector<std::shared_ptr<CHittable<T>>> objects_;
     };
 
-} // namespace raytracer
+} // namespace RTOW_raytracer

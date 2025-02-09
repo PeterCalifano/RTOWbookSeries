@@ -7,11 +7,11 @@
  */
 #pragma once
 #include <Eigen/Dense>
-#include <CRay.h>
+#include <base/CRay.h>
 #include <global_include.h>
 // DEVNOTE: CHittable CANNOT be included here due to circular dependency with utils.h
 
-namespace raytracer
+namespace RTOW_raytracer
 {
     // Forward declarations
     template <typename T>
@@ -162,4 +162,4 @@ namespace raytracer
         };
     };
 
-} // namespace raytracer
+} // namespace RTOW_raytracer

@@ -5,12 +5,12 @@
  * @version 0.1
  * @date 2024-08-15
  */
-#include <CMaterial.h>
-#include <CHittable.h>
-#include <CRay.h>
-#include <rng.h>
+#include <base/CMaterial.h>
+#include <base/CRay.h>
+#include <geometry/CHittable.h>
+#include <utils/rng.h>
 
-namespace raytracer
+namespace RTOW_raytracer
 {
 
     /**
@@ -191,4 +191,4 @@ namespace raytracer
     template class CLambertian<double>;
     template class CPurelyReflective<double>;
     template class CDielectric<double>;
-} // namespace raytracer
+} // namespace RTOW_raytracer

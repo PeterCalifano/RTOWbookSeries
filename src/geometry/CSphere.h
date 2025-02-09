@@ -15,7 +15,7 @@
 
 using std::fmax;
 
-namespace raytracer
+namespace RTOW_raytracer
 {
     // Forward declarations
     template <typename T>

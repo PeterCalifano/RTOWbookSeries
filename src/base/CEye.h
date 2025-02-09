@@ -16,7 +16,7 @@
 #include <CAntiAliasing.h>
 #include <CRay.h>
 
-namespace raytracer
+namespace RTOW_raytracer
 {
     // Forward declarations
     template <typename T>
@@ -229,4 +229,4 @@ namespace raytracer
             viewport_ = viewport; // Set viewport
         };
     };
-} // namespace raytracer
+} // namespace RTOW_raytracer

@@ -10,7 +10,7 @@
 #include <utils.h>
 #include <global_include.h>
 
-namespace raytracer
+namespace RTOW_raytracer
 {
     /**
      * @brief Function to convert linear colour components to gamma-corrected values (Gamma 2 transform)
@@ -155,4 +155,4 @@ namespace raytracer
 
     // TEMPLATE EXPLICIT INSTANTIATION
     template class CViewport<double>;
-}; // namespace raytracer
+}; // namespace RTOW_raytracer
