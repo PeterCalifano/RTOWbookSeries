@@ -2,7 +2,7 @@
 #include <limits>
 #include <cmath>
 
-#if (WITH_CUDA)
+#if (CUDA_ENABLED)
 #include <cuda_runtime.h>
 
 // Define macros
@@ -20,7 +20,7 @@
 
 #endif
 
-#if (WITH_CUDA)
+#if (CUDA_ENABLED)
 // Template typedefs from CUDA runtime (int, float, double)
 template <typename pointT>
 using Point3 = pointT;
@@ -44,7 +44,7 @@ using Vector3 = Eigen::Vector<T, 3>;
 const double INF = std::numeric_limits<double>::infinity();
 const double numerical_zero = 1e-8;
 
-#if (WITH_CUDA)
+#if (CUDA_ENABLED)
 // isVecNearZero for custom Vector3 type
 template <typename T>
 inline bool IsVecNearZero(const Vector3<T> &vec)

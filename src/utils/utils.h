@@ -16,7 +16,7 @@
 #include <CEye.h> // DEVNOTE: strictly required because CViewport uses methods of CEye!
 #include <algorithm>
 
-#if (WITH_CUDA)
+#if (CUDA_ENABLED)
 #include <cuda_runtime.h>
 #endif
 
