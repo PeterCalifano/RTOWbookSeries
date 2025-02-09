@@ -15,7 +15,7 @@
 #include <memory>
 #include <base/CPerspectiveCamera.h>
 
-#define IMG_PATH "../output/"
+#define IMG_PATH "./"
 #define NUM_THREADS 4
 
 using namespace RTOW_raytracer;

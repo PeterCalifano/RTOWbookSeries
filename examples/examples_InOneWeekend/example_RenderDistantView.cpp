@@ -17,7 +17,7 @@
 #include <memory>
 #include <base/CMaterial.h>
 
-#define IMG_PATH "."
+#define IMG_PATH "./"
 #define IMG_NAME "imageDistantView"
 
 using namespace RTOW_raytracer;

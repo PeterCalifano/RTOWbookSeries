@@ -17,7 +17,7 @@
 #include <memory>
 #include <base/CMaterial.h>
 
-#define IMG_PATH "/home/peterc/devDir/raytracing_PeterCdev/RayTracingBooksSeries/output/"
+#define IMG_PATH "./"
 #define IMG_NAME "imageWideAngleView"
 
 using namespace RTOW_raytracer;

@@ -16,7 +16,7 @@
 #include <global_include.h>
 #include <memory>
 
-#define IMG_PATH "/home/peterc/devDir/codeRepoPeterC/raytracing/RayTracingBooksSeries/output/"
+#define IMG_PATH "./"
 #define IMG_NAME "imageShadedSphereWithWorld"
 #define NUM_THREADS 4
 

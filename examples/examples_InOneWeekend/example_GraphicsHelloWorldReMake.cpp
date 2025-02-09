@@ -13,7 +13,7 @@
 // Include RTOW_raytracer_preproto utils/utils.h. DEVNOTE: I would like RTOW_raytracer_preproto name to be specified in the include name like gtsam
 #include <utils/utils.h>
 
-#define IMG_PATH "."
+#define IMG_PATH "./"
 
 int main()
 {
