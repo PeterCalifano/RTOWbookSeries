@@ -48,7 +48,7 @@ namespace RTOW_raytracer
         // Getters
         __both POINT3 origin() const { return origin_; }
         __both VECTOR3 direction() const { return direction_; }
-        __both VECTOR3 GetUnitDirection() const { return direction_.normalized(); }
+        __both VECTOR3 getUnitDirection() const { return direction_.normalized(); }
         __both T time() const { return time_; }
 
     protected:

@@ -120,7 +120,7 @@ namespace RTOW_raytracer
                                           Vector3<T> &channelAttenuation, CRay<Vector3<T>, Point3<T>, T> &scatteredRay) const
     {
         // Compute the reflected ray direction (not normalized)
-        Vector3<T> reflectedDirection = ComputeReflectedRay<T>(incidentRay.GetUnitDirection(), hitRecord.normalVec);
+        Vector3<T> reflectedDirection = ComputeReflectedRay<T>(incidentRay.getUnitDirection(), hitRecord.normalVec);
 
         if (rndFactor_ > 0.0)
         {
@@ -155,7 +155,7 @@ namespace RTOW_raytracer
         channelAttenuation = Vector3<T>(1.0, 1.0, 1.0);
 
         // Get unit direction of the incident ray
-        Vector3<T> unitDirection = incidentRay.GetUnitDirection();
+        Vector3<T> unitDirection = incidentRay.getUnitDirection();
 
         // Compute cosine of the angle of incidence
         T cosIncidenceAngle = std::min(unitDirection.dot(-hitRecord.normalVec), (T)1.0);

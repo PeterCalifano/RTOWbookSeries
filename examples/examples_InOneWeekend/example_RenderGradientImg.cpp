@@ -24,7 +24,7 @@ using namespace RTOW_raytracer;
 Eigen::Vector3i ComputeGradientColour(const CRay<Vector3<double>, Point3<double>, double> &ray)
 {
     // Compute pixel colour based on ray direction
-    Eigen::Vector3d unit_direction(ray.GetUnitDirection());
+    Eigen::Vector3d unit_direction(ray.getUnitDirection());
 
     // Blend white and blue based on y direction (modify this to get different gradients of different colours)
     double a = 0.5 * (unit_direction.y() + 1.0);

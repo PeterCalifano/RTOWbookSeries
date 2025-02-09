@@ -37,7 +37,7 @@ Eigen::Vector3i ComputeGradientColour(const CRay<Vector3<double>, Point3<double>
     else
     {
         // Else return background colour
-        double a = 0.5 * (ray.GetUnitDirection().y() + 1.0);
+        double a = 0.5 * (ray.getUnitDirection().y() + 1.0);
         Eigen::Vector3i rgb_int = CColour::RGBfromFloat(static_cast<Vector3d>((1.0 - a) * Vector3d(1.0, 1.0, 1.0) + a * Vector3d(0.5, 0.7, 1.0))); // Colour the background
 
         return rgb_int;

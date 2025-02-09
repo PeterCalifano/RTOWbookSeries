@@ -186,7 +186,7 @@ namespace RTOW_raytracer
                 }
 
                 // Else return background colour (arbitrarily set to blue-white gradient. Note that 0.5 corresponds to gray)
-                double a = 0.5 * (ray.GetUnitDirection().y() + 1.0);
+                double a = 0.5 * (ray.getUnitDirection().y() + 1.0);
                 Vector3<T> outColourVec((1.0 - a) * Vector3<T>(1.0, 1.0, 1.0) + a * Vector3<T>(0.5, 0.7, 1.0));
 
                 return outColourVec;

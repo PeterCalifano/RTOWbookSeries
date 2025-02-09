@@ -52,7 +52,7 @@ namespace RTOW_raytracer
         void SetFaceNormal(const CRay<Vector3<T>, Point3<T>, T> &ray, const Vector3<T> &outwardNormal)
         {
             // ACHTUNG: outwardNormal is assumed to be a unit vector
-            frontFace = (ray.GetUnitDirection()).dot(outwardNormal) < 0; // Compute if normal at hit point is facing the ray
+            frontFace = (ray.getUnitDirection()).dot(outwardNormal) < 0; // Compute if normal at hit point is facing the ray
             normalVec = frontFace ? outwardNormal : -outwardNormal;
         }
 
