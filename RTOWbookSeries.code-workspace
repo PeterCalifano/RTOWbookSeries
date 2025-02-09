@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../raytracing_PeterCdev/RayTracingBooksSeries"
+		},
+		{
+			"path": "../skysimulator"
+		}
+	],
+	"settings": {}
+}
