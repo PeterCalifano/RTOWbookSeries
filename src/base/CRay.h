@@ -44,7 +44,7 @@ namespace RTOW_raytracer
         // CONSTRUCTORS
         __both CRay() {};
         __both CRay(const POINT3 &origin, const VECTOR3 &direction, const RayType rayType = RayType::RADIANCE) : origin_(origin), direction_(direction), rayType_(rayType) {};
-        __both CRay(const VECTOR3 &origin, const VECTOR3 &direction, const RayType rayType = RayType::RADIANCE, const T time) : origin_(origin), direction_(direction), rayType_(rayType), time_(time) {};
+        __both CRay(const POINT3 &origin, const VECTOR3 &direction, const RayType rayType = RayType::RADIANCE, const T time = 0.0) : origin_(origin), direction_(direction), rayType_(rayType), time_(time) {};
 
         // DESTRUCTOR
         __both ~CRay() = default;

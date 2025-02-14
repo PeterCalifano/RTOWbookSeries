@@ -38,7 +38,7 @@ namespace RTOW_raytracer
 
         // Define and return ray object
         return CRay<Vector3<T>, Point3<T>, T>(centre_, ray_direction);
-    };
+    }
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
