@@ -13,7 +13,7 @@
 #include <iostream>
 #include <memory>
 
-namespace RTOW_raytracer
+namespace intersection
 {
 
     // Function declarations
