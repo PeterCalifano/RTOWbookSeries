@@ -70,6 +70,7 @@ find_package( Doxygen )
 find_package( OpenGL REQUIRED )
 find_package( CUDAToolkit 12.0 REQUIRED) 
 
+#find_package( TODO spectral rt)
 #find_package( GTSAM 4.0 REQUIRED )
 #find_package( GTSAM_UNSTABLE REQUIRED)
 #find_package( sopengv )
