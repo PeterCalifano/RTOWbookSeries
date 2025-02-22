@@ -1,9 +1,9 @@
 # VERSION CONTROL 
 cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
 
-#set(CMAKE_C_COMPILER gcc-11)
-#set(CMAKE_CXX_COMPILER g++-11)
-#set(CMAKE_CUDA_COMPILER nvcc)
+set(CMAKE_C_COMPILER gcc)
+set(CMAKE_CXX_COMPILER g++)
+set(CMAKE_CUDA_COMPILER nvcc)
 
 # Manually specify build type
 set(CMAKE_BUILD_TYPE relwithdebinfo)
@@ -70,6 +70,7 @@ find_package( Doxygen )
 find_package( OpenGL REQUIRED )
 find_package( CUDAToolkit 12.0 REQUIRED) 
 
+#find_package( TODO spectral rt)
 #find_package( GTSAM 4.0 REQUIRED )
 #find_package( GTSAM_UNSTABLE REQUIRED)
 #find_package( sopengv )

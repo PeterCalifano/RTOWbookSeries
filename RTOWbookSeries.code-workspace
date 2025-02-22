@@ -7,10 +7,7 @@
 			"path": "../skysimulator"
 		},
 		{
-			"path": "../raytracing_PeterCdev/singleRayTracer_ESA"
-		},
-		{
-			"path": "../spectral_raytracer"
+			"path": "../radiometric-rgb-raytracer"
 		}
 	],
 	"settings": {
@@ -29,7 +26,16 @@
 			"polybar/*.conf": "ini",
 			"*.i": "cpp",
 			"core": "cpp",
-			"specialfunctions": "cpp"
+			"specialfunctions": "cpp",
+			"array": "cpp",
+			"string": "cpp",
+			"string_view": "cpp",
+			"span": "cpp",
+			"iterator": "cpp",
+			"vector": "cpp",
+			"regex": "cpp",
+			"strstream": "cpp",
+			"sstream": "cpp"
 		}
 	}
 }

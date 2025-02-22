@@ -1,0 +1,18 @@
+# List of TODOs for RTOW CPU-based raytracer
+
+- [ ] Review CEye and CViewport classes to decide if unification is necessary
+
+- [ ] Fix RTOW compilation issues
+
+- [ ] Implement stb to output data to png files
+
+- [ ] Wrap prototype of RTOW to MATLAB for testing
+
+- [ ] Review issues and fix bugs 
+
+- [ ] Review geometry objects and decide how to integrate them with Spectral RT
+
+- [ ] Harmonize classes for viewport, eye, camera between RTOW and Spectral RT
+
+- [ ] Harmonize triangular mesh classes betwee RTOW and Spectral RT
+
