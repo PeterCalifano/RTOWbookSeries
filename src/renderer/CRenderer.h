@@ -3,3 +3,33 @@
 
 #pragma once
 #include <Eigen/Dense>
+
+class CRenderer
+{
+
+  public:
+    /**
+     * @brief Construct a new CRenderer object
+     *
+     */
+    CRenderer() = default;
+
+    /**
+     * @brief Destroy the CRenderer object
+     *
+     */
+    ~CRenderer() = default;
+
+    // GETTERS
+
+    // SETTERS
+
+    // PUBLIC METHODS
+
+  protected:
+  public:
+    // PUBLIC DATA MEMBERS
+
+  protected:
+    // PROTECTED DATA MEMBERS
+};
