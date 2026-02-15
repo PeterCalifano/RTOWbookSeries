@@ -1,4 +1,0 @@
-[submodule "lib/Spectral_raytracer"]
-	path = lib/Spectral_raytracer
-	url = git@github.com:PeterCalifano/Spectral_raytracer.git
-	branch = dev_reworkedProjectConfig
